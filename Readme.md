@@ -1,4 +1,4 @@
-Today, we will train a CNN to do vision-based driving in SuperTuxKart.
+We will train a CNN to do vision-based driving in SuperTuxKart.
 
 We will design a simple low-level controller that acts as an auto-pilot to drive in SuperTuxKart. We then use this auto-pilot to train a vision based driving system. To get started, first download and install SuperTuxKart on your machine. If you are working on colab, be sure that you have the GPU hardware accelerator enabled. To enable the GPU hardware accelerator go to Runtime > Change Runtime Type > GPU > Save your colab notebook will then restart with GPU enabled.
 
@@ -12,7 +12,7 @@ Once you have GPU enabled use the following to install SuperTuxKart:
 In the first part of this homework, you will write a low-level controller in controller.py. The controller function takes as input an aim point and the current velocity of the car. The aim point is a point on the center of the track 15 meters away from the kart, as shown below.
 
 Example: 
-![Example](/Users/ankitasinha/GITHUB/CV_Project_AI@UCI/SuperTuxKart/controller.png )
+![Example](https://github.com/anki08/CV_Project/blob/main/SuperTuxKart/controller.png )
 
 We use screen coordinates for the aim point: [-1..1] in both x and y directions. The point (-1,-1) is the top left of the screen and (1, 1) the bottom right.
 
@@ -47,7 +47,7 @@ This function creates a dataset of images and corresponding aim points in drive_
 > 
 Below are a few examples from the master-solution controller.
 
-![Example](/Users/ankitasinha/GITHUB/CV_Project_AI@UCI/SuperTuxKart/data.png )
+![Example](https://github.com/anki08/CV_Project/blob/main/SuperTuxKart/data.png )
 
 
 Model
@@ -62,4 +62,4 @@ to drive with your CNN planner and controller.
 
 The red circle in the image below is being predicted using the trained master-solution planner network as a substitute for the ground truth aim point used previously.
 
-![Example](/Users/ankitasinha/GITHUB/CV_Project_AI@UCI/SuperTuxKart/planner.png )
+![Example](https://github.com/anki08/CV_Project/blob/main/SuperTuxKart/planner.png )
