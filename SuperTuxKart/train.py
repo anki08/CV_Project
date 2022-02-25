@@ -4,9 +4,6 @@ import torch.utils.tensorboard as tb
 import numpy as np
 from .utils import load_data
 from . import dense_transforms
-# from ignite.engine import create_supervised_trainer, create_supervised_evaluator
-# from ignite.metrics import Loss, Accuracy
-# from ignite.contrib.handlers import FastaiLRFinder, ProgressBar
 
 def train(args):
     from os import path
