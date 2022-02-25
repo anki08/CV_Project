@@ -30,6 +30,15 @@ Implement your controller in the control function in controller.py. You do not n
 Once you finish, you could test your controller using
 > python3 -m SuperTuxKart.controller [TRACK_NAME] -v
 
+Hint: Skid if the steering angle is too large.
+
+Hint: Target a constant velocity.
+
+Hint: Steering and relative aim point use different units. Use the aim point and a tuned scaling factor to select the amount of normalized steering.
+
+Hint: Make sure that your controller is able to complete all levels before proceeding to the next part of the homework because you will use your controller to build the training set for your planner.
+
+
 ### Planner
 
 In the second part, you will train a planner to predict the aim point. The planner takes as input an image and outputs the aim point in the image coordinate. Your controller then maps those aim points to actions.
