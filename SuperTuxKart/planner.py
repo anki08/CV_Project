@@ -17,28 +17,22 @@ class Planner(torch.nn.Module):
     def __init__(self, channels=[16, 32, 32, 32]):
         super().__init__()
 
-        conv_block = lambda c, h: [torch.nn.BatchNorm2d(h), torch.nn.Conv2d(h, c, 5, 2, 2), torch.nn.ReLU(True)]
+        """
+                Your code here
+                create a small convolution network. 
+                channels -> [16,32,32,32], kernel size = 5, stride =2 , padding = 2
+                add a 1x1 conv2d classification layer at the end. Output class  = 1, kernel = 1
+        """
 
-        h, _conv = 3, []
-        for c in channels:
-            _conv += conv_block(c, h)
-            h = c
-
-        self._conv = torch.nn.Sequential(*_conv, torch.nn.Conv2d(h, 1, 1))
-        # self.classifier = torch.nn.Linear(h, 2)
-        # self.classifier = torch.nn.Conv2d(h, 1, 1)
 
     def forward(self, img):
         """
-        Your code here
         Predict the aim point in image coordinate, given the supertuxkart image
         @img: (B,3,96,128)
         return (B,2)
         """
         x = self._conv(img)
         return spatial_argmax(x[:, 0])
-        # return self.classifier(x.mean(dim=[-2, -1]))
-
 
 def save_model(model):
     from torch import save
