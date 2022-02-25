@@ -20,7 +20,7 @@ def train(args):
         train_logger = tb.SummaryWriter(path.join(args.log_dir, 'train15'))
 
     """
-    Your code here, modify your HW4 code
+    Your code here
     Hint: Use the log function below to debug and visualize your model
     """
 
@@ -34,63 +34,18 @@ def train(args):
     import inspect
     transform = eval(args.transform, {k: v for k, v in inspect.getmembers(dense_transforms) if inspect.isclass(v)})
 
-    train_data = load_data('/Users/asinha4/UTAustin/cs342-file/homework5/drive_data', batch_size=60, transform=transform)
-
-    # trainer = create_supervised_trainer(model, optimizer, criterion, device=device)
-    # ProgressBar(persist=True).attach(trainer, output_transform=lambda x: {"batch loss": x})
-    #
-    # lr_finder = FastaiLRFinder()
-    # to_save = {'model': model, 'optimizer': optimizer}
-    # with lr_finder.attach(trainer, to_save, diverge_th=1.5) as trainer_with_lr_finder:
-    #     trainer_with_lr_finder.run(train_data)
-    #
-    # trainer.run(train_data, max_epochs=10)
-    #
-    # evaluator = create_supervised_evaluator(model, metrics={"loss": Loss(criterion)},
-    #                                         device=device)
-    # evaluator.run(train_data)
-    #
-    # print(evaluator.state.metrics)
-    #
-    #
-    #
-    # print("suggestion", lr_finder.lr_suggestion())
-    # lr_finder.plot()
-
-
-    #**************************************************************************************
+    train_data = load_data('../drive_data', batch_size=60, transform=transform)
     global_step_1 = 0
     epoch = args.num_epoch
-
 
     for epoch in range(epoch):
         model.train()
         for img, peak in train_data:
-            img, peak = img.to(device), peak.to(device)
-            # print(img.shape, peak.shape)
-            result = model(img)
-            # print("loss", result.shape, peak.shape)
-            loss_img_calc = criterion(result, peak)
-            # log(train_logger, img, peak, result, global_step_1)
-
-            train_logger.add_scalar('loss_image', loss_img_calc, global_step_1)
-
-            optimizer.zero_grad()
-            loss_img_calc.backward()
-            optimizer.step()
+            """calculate loss, add optimizer"""
             global_step_1 += 1
-
-            train_logger.add_scalar('lr', optimizer.param_groups[0]['lr'], global_step=global_step_1)
-            log(train_logger, img, peak, result, global_step_1)
-
-        train_logger.add_scalar('epoch', epoch, global_step_1)
 
         model.eval()
 
-        # for img, peak in valid_data:
-        #     img, peak = img.to(device), peak.to(device)
-        #     logit = model(img)
-        #     log(valid_logger, img, peak, logit, global_step_1)
         print("epoch", epoch)
         if (epoch == 20):
             optimizer.param_groups[0]['lr'] = 0.009
