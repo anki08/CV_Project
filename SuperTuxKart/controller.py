@@ -37,6 +37,14 @@ def control(aim_point, current_vel):
     steer_val = math.fabs(ang)
 
     """Your Code """
+    if(current_vel < 20):
+        action.acceleration = 1
+    if(0.50 <= steer_val <= 1):
+        action.drift = True
+    if (0.75 <= steer_val <= 1):
+        action.brake = True
+    if (2 <= steer_val <= 0.10 and current_vel < 7):
+        action.nitro = True
     action.steer = ang
     return action
 

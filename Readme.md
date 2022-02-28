@@ -7,7 +7,16 @@ We will design a simple low-level controller that acts as an auto-pilot to drive
 runtime
 
 Once you have GPU enabled use the following to install SuperTuxKart:
- > %pip install -U PySuperTuxKart
+ > pip install -U PySuperTuxKart
+
+Other requirements:
+> pip install Pillow
+> pip install future
+> pip install matplotlib
+> pip install numpy
+> pip install torch
+> pip install torchvision
+> pip install tensorboard
 
 
 ### Controller
