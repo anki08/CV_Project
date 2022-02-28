@@ -57,14 +57,17 @@ We highly recommend you limit yourself to the above training levels, adding addi
 This function creates a dataset of images and corresponding aim points in drive_data. You can visualize the data using
 
 >python3 -m SuperTuxKart.visualize_data drive_data
-> 
+
 Below are a few examples from the master-solution controller.
 
 ![Example](https://github.com/anki08/CV_Project/blob/main/SuperTuxKart/data.png )
 
 
 Model
-Implement your planner model in Planner class of planner.py. Your planner model is a torch.nn.Module that takes as input an image tensor and outputs the aiming point in image coordinates (x:0..127, y:0..95). We recommend using an encoder-decoder structure to predict a heatmap and extract the peak using a spatial argmax layer in utils.py. Complete the training code in train.py and train your model using python3 -m homework.train.
+Implement your planner model in Planner class of planner.py. Your planner model is a torch.nn.Module that takes as input an image tensor and outputs the aiming point in image coordinates (x:0..127, y:0..95). 
+We recommend using an encoder-decoder structure to predict a heatmap and extract the peak using a spatial argmax layer in utils.py. 
+Complete the training code in train.py and train your model using 
+> python3 -m SuperTuxKart.train.
 
 Vision-Based Driving
 Once you completed everything, use

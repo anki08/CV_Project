@@ -23,6 +23,14 @@ class Planner(torch.nn.Module):
                 channels -> [16,32,32,32], kernel size = 5, stride =2 , padding = 2
                 add a 1x1 conv2d classification layer at the end. Output class  = 1, kernel = 1
         """
+        conv_block = lambda c, h: [torch.nn.BatchNorm2d(h), torch.nn.Conv2d(h, c, 5, 2, 2), torch.nn.ReLU(True)]
+
+        h, _conv = 3, []
+        for c in channels:
+            _conv += conv_block(c, h)
+            h = c
+
+        self._conv = torch.nn.Sequential(*_conv, torch.nn.Conv2d(h, 1, 1))
 
 
     def forward(self, img):
