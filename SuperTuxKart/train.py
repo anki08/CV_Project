@@ -1,6 +1,5 @@
 from .planner import Planner, save_model 
 import torch
-import torch.utils.tensorboard as tb
 import numpy as np
 from .utils import load_data
 from . import dense_transforms
@@ -12,9 +11,6 @@ def train(args):
 
     model = Planner().to(device)
 
-    train_logger, valid_logger = None, None
-    if args.log_dir is not None:
-        train_logger = tb.SummaryWriter(path.join(args.log_dir, 'train15'))
 
     """
     Your code here
@@ -31,7 +27,8 @@ def train(args):
     import inspect
     transform = eval(args.transform, {k: v for k, v in inspect.getmembers(dense_transforms) if inspect.isclass(v)})
 
-    train_data = load_data('../drive_data', batch_size=60, transform=transform)
+    train_data = load_data('/drive_data', batch_size=60, transform=transform)
+
     global_step_1 = 0
     epoch = args.num_epoch
 

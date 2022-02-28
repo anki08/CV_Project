@@ -16,7 +16,6 @@ Other requirements:
 > pip install numpy
 > pip install torch
 > pip install torchvision
-> pip install tensorboard
 
 
 ### Controller
