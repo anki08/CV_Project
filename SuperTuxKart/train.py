@@ -14,7 +14,6 @@ def train(args):
 
     """
     Your code here
-    Hint: Use the log function below to debug and visualize your model
     """
 
     if args.continue_training:
@@ -29,16 +28,12 @@ def train(args):
 
     train_data = load_data('/drive_data', batch_size=60, transform=transform)
 
-    global_step_1 = 0
     epoch = args.num_epoch
 
     for epoch in range(epoch):
         model.train()
         for img, peak in train_data:
             """calculate loss, add optimizer"""
-            global_step_1 += 1
-
-        model.eval()
 
         print("epoch", epoch)
         if (epoch == 20):

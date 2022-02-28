@@ -47,7 +47,7 @@ Hint: Make sure that your controller is able to complete all levels before proce
 
 In the second part, you will train a planner to predict the aim point. The planner takes as input an image and outputs the aim point in the image coordinate. Your controller then maps those aim points to actions.
 
-####Data
+### Data
 Use your low-level controller to collect a training set for the planner.
 
 > python3 -m SuperTuxKart.utils zengarden lighthouse hacienda snowtuxpeak cornfield_crossing scotland
