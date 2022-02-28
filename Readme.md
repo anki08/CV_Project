@@ -10,7 +10,7 @@ Once you have GPU enabled use the following to install SuperTuxKart:
  > pip install -U PySuperTuxKart
 
 Other requirements:
-> pip install -r req.txt
+> pip install -r requirements.txt
 
 
 ### Controller
