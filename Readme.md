@@ -67,7 +67,7 @@ Model
 Implement your planner model in Planner class of planner.py. Your planner model is a torch.nn.Module that takes as input an image tensor and outputs the aiming point in image coordinates (x:0..127, y:0..95). 
 We recommend using an encoder-decoder structure to predict a heatmap and extract the peak using a spatial argmax layer in utils.py. 
 Complete the training code in train.py and train your model using 
-> python3 -m SuperTuxKart.train.
+> python3 -m SuperTuxKart.train
 
 Vision-Based Driving
 Once you completed everything, use

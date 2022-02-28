@@ -34,6 +34,13 @@ def train(args):
         model.train()
         for img, peak in train_data:
             """calculate loss, add optimizer"""
+            img, peak = img.to(device), peak.to(device)
+            result = model(img)
+            loss_img_calc = criterion(result, peak)
+
+            optimizer.zero_grad()
+            loss_img_calc.backward()
+            optimizer.step()
 
         print("epoch", epoch)
         if (epoch == 20):
