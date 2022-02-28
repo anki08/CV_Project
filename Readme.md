@@ -32,7 +32,7 @@ The goal of the low-level controller is to steer towards this point. The output 
 Implement your controller in the control function in controller.py. You do not need any deep learning to design this low-level controller. You may use numpy instead of pytorch if you wish.
 
 Once you finish, you could test your controller using
-> python3 -m SuperTuxKart.controller [TRACK_NAME] -v
+> python3 -m SuperTuxKart.controller zengarden -v
 
 Hint: Skid if the steering angle is too large.
 
