@@ -3,7 +3,6 @@ Link to the paper -> https://arxiv.org/pdf/1904.07850.pdf
 We will train a CNN to do vision-based driving in SuperTuxKart.
 
 We will design a simple low-level controller that acts as an auto-pilot to drive in SuperTuxKart. We then use this auto-pilot to train a vision based driving system. To get started, first download and install SuperTuxKart on your machine. If you are working on colab, be sure that you have the GPU hardware accelerator enabled. To enable the GPU hardware accelerator go to Runtime > Change Runtime Type > GPU > Save your colab notebook will then restart with GPU enabled.
-
 runtime
 
 Once you have GPU enabled use the following to install SuperTuxKart:
